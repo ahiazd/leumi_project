@@ -1,7 +1,7 @@
-FROM python:3.7
+FROM python:3.7.7-slim-stretch
 
 run mkdir SCRIPTS
 
-ADD pythonApp.py ./SCRIPTS
+ADD my-python-app.py ./SCRIPTS
 
-CMD ["python", "./SCRIPTS/pythonApp.py"]
+CMD ["python", "./SCRIPTS/my-python-app.py"]
