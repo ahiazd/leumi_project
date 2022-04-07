@@ -19,6 +19,7 @@ pipeline {
             sh '''
             cd ${workspace}
             docker tag ${image_tag_name} ahiazd/leumi_project:${tag_name_b4_push};
+            docker login;
             docker push ahiazd/leumi_project:${tag_name_b4_push};
             sh '''
             }
