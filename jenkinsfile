@@ -9,9 +9,7 @@ pipeline {
         stage ("Build contaier"){
             steps{
             sh '''
-            workspace="/var/lib/jenkins/workspace/deploy_pipeline";
-            echo $workspace;
-            cd $worksapce;
+            pwd;
             docker build --file ${dockerfile_name} --tag ${image_tag_name} .
             sh '''
             }
