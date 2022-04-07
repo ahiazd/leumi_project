@@ -6,7 +6,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/ahiazd/leumi_project.git'
             }
         }
-        stage ("Build contaier"){
+        stage ("Build container"){
             steps{
             sh '''
             pwd;
