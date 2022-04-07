@@ -17,6 +17,7 @@ pipeline {
         stage ("push to registry"){
             steps{
             sh '''
+            cd ${workspace}
             docker tag python-app-deploy ahiazd/leumi_project:python-app-test;
             docker push ahiazd/leumi_project:python-app-test;
             sh '''
