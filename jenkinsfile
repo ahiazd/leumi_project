@@ -10,6 +10,7 @@ pipeline {
             steps{
             sh '''
             workspace="/var/lib/jenkins/workspace/deploy_pipeline";
+            echo $workspace;
             cd $worksapce;
             docker build --file ${dockerfile_name} --tag ${image_tag_name} .
             sh '''
