@@ -13,6 +13,8 @@ pipeline {
             cd $worksapce;
             docker build --file ${dockerfile_name} --tag ${image_tag_name} .
             sh '''
-        }    
+            }
+        }   
+     }    
         }
     
