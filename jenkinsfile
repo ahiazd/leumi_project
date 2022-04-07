@@ -13,7 +13,13 @@ pipeline {
             docker build --file ${dockerfile_name} --tag ${image_tag_name} .
             sh '''
             }
-        }   
-     }    
-        }
+        }  
+        stage ("push to registry"){
+            steps{
+        docker tag python-app-deploy ahiazd/leumi_project:python-app-test;
+        docker push ahiazd/leumi_project:python-app-test;
+            }
+       }
+    }    
+       }
     
