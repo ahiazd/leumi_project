@@ -18,7 +18,7 @@ pipeline {
             steps{
             sh '''
             cd ${workspace}
-            docker tag python-app-deploy ahiazd/leumi_project:python-app-test;
+            docker tag ${image_tag_name} ahiazd/leumi_project:python-app-test-new;
             docker push ahiazd/leumi_project:python-app-test;
             sh '''
             }
