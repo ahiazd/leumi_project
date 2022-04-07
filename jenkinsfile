@@ -16,8 +16,10 @@ pipeline {
         }  
         stage ("push to registry"){
             steps{
-        docker tag python-app-deploy ahiazd/leumi_project:python-app-test;
-        docker push ahiazd/leumi_project:python-app-test;
+            sh '''
+            docker tag python-app-deploy ahiazd/leumi_project:python-app-test;
+            docker push ahiazd/leumi_project:python-app-test;
+            sh '''
             }
        }
     }    
