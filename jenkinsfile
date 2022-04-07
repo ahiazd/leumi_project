@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage ("Git"){
+            steps{
+                git branch: 'main', url: 'https://github.com/ahiazd/leumi_project.git'
+            }
+        }
+        stage ("Build contaier"){
+            steps{
+            sh '''
+            workspace="/var/lib/jenkins/workspace/deploy_pipeline";
+            cd $worksapce;
+            docker build --file ${dockerfile_name} --tag ${image_tag_name} .
+            sh '''
+        }    
+        }
+    
