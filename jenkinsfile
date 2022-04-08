@@ -32,4 +32,4 @@ registryCredential = 'dockerhub_cred'
        }
     }    
        }
-    
+ }
