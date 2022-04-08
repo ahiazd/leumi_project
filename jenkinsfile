@@ -27,6 +27,7 @@ pipeline {
             docker push ahiazd/leumi_project:${tag_name_b4_push};
             sh '''
             }
+            }
        }
     }    
        }
