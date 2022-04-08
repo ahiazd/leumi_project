@@ -1,4 +1,7 @@
 pipeline {
+environment {
+registry = "ahiazd/leumi_project"
+registryCredential = 'dockerhub_cred'
     agent any
     stages {
         stage ("Git"){
@@ -16,16 +19,14 @@ pipeline {
         }  
         stage ("push to registry"){
             steps{
-            withCredentials([usernamePassword( credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-            def registry_url = "registry.hub.docker.com/"
-            bat "docker login -u $USER -p $PASSWORD ${registry_url}"
-            docker.withRegistry("http://${registry_url}", "dockerhub_cred") {
-            // Push your image now
+            script {
+            docker.withRegistry( '', registryCredential ) {
              sh '''
             cd ${workspace}
             docker tag ${image_tag_name} ahiazd/leumi_project:${tag_name_b4_push};
             docker push ahiazd/leumi_project:${tag_name_b4_push};
             sh '''
+            }
             }
             }
        }
