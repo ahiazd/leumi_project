@@ -1,11 +1,11 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
 kind: Deployment 
 metadata: 
-  name: python-app-deployment 
+  name: angular-app-deployment 
 spec: 
   selector: 
     matchLabels: 
-      app: python-app
+      app: angular-app
   replicas: 2 # tells deployment to run 1 pods matching the template
   template: 
     metadata: 
@@ -13,18 +13,18 @@ spec:
         app: python-app 
     spec: 
       containers: 
-      - name: python-app
-        image: ahiazd/leumi_project:ahiazdpythonapp
+      - name: angular-app
+        image: ahiazd/leumi_project:angulr-app-deployment
         ports: 
         - containerPort: 80
 ------
 kind: Service 
 apiVersion: v1 
 metadata: 
-  name: python-app-service 
+  name: angular-app-service 
 spec: 
   selector: 
-    app: python-app
+    app: angular-app
   ports: 
   - protocol: TCP 
     port: 80 
