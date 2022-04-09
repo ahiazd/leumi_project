@@ -14,6 +14,20 @@ spec:
     spec: 
       containers: 
       - name: python-app
-        image: ahiazd/leumi_project:ahiazdpythonapp:v1
+        image: ahiazd/leumi_project:ahiazdpythonapp
         ports: 
         - containerPort: 80
+------
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: apython-app-service 
+spec: 
+  selector: 
+    app: python-app
+  ports: 
+  - protocol: TCP 
+    port: 80 
+    targetPort: 80 
+    nodePort: 31000 
+  type: NodePort         
