@@ -1,9 +1,11 @@
-FROM node:latest as node
-WORKDIR /app
-COPY . .
-RUN npm install
-RUN npm run build --prod
+FROM flask import Flask, jsonify
+import time
 
-# stage 2
-FROM nginx:alpine
-COPY --from=node /app/dist/angular-app /usr/share/nginx/html
+app = Flask(__name__)
+
+app.route("/")
+def hello_world();
+    return jsonify({"Time to Call": time.time()})
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=True)
