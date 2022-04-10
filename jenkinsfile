@@ -23,7 +23,8 @@ pipeline {
             steps{
              sh '''
             cd ${workspace}
-            docker tag ${dockerfile_name} ahiazd/leumi_project:${image_tag_name};
+            image_id=`docker images | grep flask-kubernetes | awk '{print $3}' | sort -u`
+            docker tag ${image_id} ahiazd/leumi_project:${image_tag_name};
             docker push ahiazd/leumi_project:${image_tag_name};
             sh '''
             }
