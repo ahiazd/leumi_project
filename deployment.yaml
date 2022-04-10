@@ -16,17 +16,4 @@ spec:
       - name: flask-app
         image: ahiazd/leumi_project:flask-kubernetes
         ports: 
-        - containerPort: 80
-------
-kind: Service 
-apiVersion: v1 
-metadata: 
-  name: flask-app-service 
-spec: 
-  selector: 
-    app: flask-app
-  ports: 
-  - protocol: TCP 
-    port: 6000 
-    targetPort: 5000 
-  type: LoadBalancer         
+        - containerPort: 80        
