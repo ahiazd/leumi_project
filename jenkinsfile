@@ -29,6 +29,11 @@ pipeline {
             sh '''
             }
         }  
+        stage ('Deploy pod'){
+            steps{
+            kubectl apply -f deployment.yaml
+            }
+        }
    }
 }    
        
