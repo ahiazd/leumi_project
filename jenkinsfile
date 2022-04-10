@@ -23,8 +23,8 @@ pipeline {
             steps{
              sh '''
             cd ${workspace}
-            docker tag ${image_tag_name} ahiazd/leumi_project:${tag_name_b4_push};
-            docker push ahiazd/leumi_project:${tag_name_b4_push};
+            docker tag ${dockerfile_name} ahiazd/leumi_project:${tag_name};
+            docker push ahiazd/leumi_project:${tag_name};
             sh '''
             }
         }  
